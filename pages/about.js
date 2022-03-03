@@ -1,15 +1,16 @@
 import Head from 'next/head'
+import Accordion from '../components/accordion'
 import Navbar from '../components/Navbar'
 
-
-export default function Home() {
+export default function About() {
   return (
-    <div>
+    <div style={{backgroundColor: "lightblue"}}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar/>
-      <h1>Home</h1>
+      <Accordion/>
     </div>
   )
 }
+
