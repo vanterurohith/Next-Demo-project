@@ -11,10 +11,10 @@ const AccordionSection = styled.div`
     justify-content: center;
     position: relative;
     height: 100vh;
-    background:#E8E8E8;
+    background:	#D3D3D3;
 `
 const Container = styled.div`
-    position: absolute;
+    margin-bottom: 250px;
     top: 30%;
 `
 

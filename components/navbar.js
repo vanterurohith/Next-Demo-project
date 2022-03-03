@@ -5,7 +5,8 @@ import Link from 'next/link';
 const Nav =styled.nav`
     height: 80px;
     width: 100vw;
-    background: skyblue;
+    background: #263238;
+    color: antiquewhite;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +21,7 @@ export default function Navbar() {
     <Nav>
       <div>
           <Link href="/" passHref>
-              <StyledLink>Logo</StyledLink>
+              <StyledLink>Templars</StyledLink>
           </Link>
       </div>  
       <div>

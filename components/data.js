@@ -14,7 +14,7 @@ export const Data = [
         phno: 9515270752,
         Hno: '2-7-9/40',
         street: 'Rameshwar Nagar',
-        email: 'vanterurohith@gmail.com'
+        email: 'rahultk@gmail.com'
     },
     {
         title: 'Student3',
@@ -22,6 +22,14 @@ export const Data = [
         phno: 7330849350,
         Hno: '10-8-4/56',
         street: 'Sneha Enclave',
-        email: 'vanterurohith@gmail.com'
+        email: 'sujith@gmail.com'
+    },
+    {
+        title: 'Student4',
+        name : 'Kaushik',
+        phno: 6303941997,
+        Hno: '11-5-6/96',
+        street: 'Sneha Enclave',
+        email: 'kaushik@gmail.com'
     },
 ]
