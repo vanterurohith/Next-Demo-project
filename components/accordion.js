@@ -1,4 +1,3 @@
-import { Data } from "./data"
 import styled from "styled-components"
 import {IconContext} from 'react-icons'
 import {FiPlus, FiMinus}  from 'react-icons/fi'
@@ -11,11 +10,16 @@ const AccordionSection = styled.div`
     justify-content: center;
     position: relative;
     height: 100vh;
+    width: 100vw;
     background:	#D3D3D3;
 `
 const Container = styled.div`
-    margin-bottom: 250px;
-    top: 30%;
+    margin-bottom: 50px;
+    width: 80vw;
+
+    @media (max-width: 768px ) {
+        width: 38vw;
+    }
 `
 
 const Wrap = styled.div`
@@ -60,7 +64,10 @@ h1{
     width: 100%;
     border-radius: 15px;
     padding: 8px;
-    padding-left: 30%;
+    padding-left: 46%;
+   @media (max-width: 768px) {
+       padding-left: 20%;
+   }   
 }
 p{
     font-size: large;
@@ -96,20 +103,19 @@ export default function Accordion(props) {
           <IconContext.Provider value={{color:'#00FFB9', size: '20px'}}>
             <AccordionSection>
                 <Container>
-                    {Data.map((item, index) =>{
+                    {props.posts.map((item, index) =>{
                         return(
                         <>
                             <Wrap onClick={() => toggle(index)} key={index}>
-                                <h1>{item.title}</h1>
+                                <h1>{item.id}</h1>
                                 <span>{clicked === index ? <FiMinus/> : <FiPlus/>}</span>
                             </Wrap>
                             {clicked === index ? (
                             <Dropdown>  
-                            <h1>{item.name}</h1>
-                            <p>{item.phno}</p>
-                            <p>{item.Hno}</p>
-                            <p>{item.street}</p>
+                            <h1>StudentData</h1>
+                            <p>{item.name}</p>
                             <p>{item.email}</p>
+                            <p>{item.department}</p>
                             <Btn>More Details</Btn>
                             </Dropdown>) : null}
                         </>

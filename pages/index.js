@@ -1,15 +1,20 @@
-import Head from 'next/head'
+import styled from 'styled-components'
 import Navbar from '../components/Navbar'
+import Sidebar from '../components/sidebar'
 
+const Temp = styled.div`
+display: flex;
+flex-direction: row;
+`
 
 export default function Home() {
   return (
     <div>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Navbar/>
+      <Temp>
+      <Sidebar/>
       <h1>Home</h1>
+      </Temp>
     </div>
   )
 }

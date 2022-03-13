@@ -1,15 +1,20 @@
-import Head from 'next/head'
-import Accordion from '../components/accordion'
+import styled from 'styled-components'
+import Form from '../components/form'
 import Navbar from '../components/Navbar'
+import Sidebar from '../components/sidebar'
 
+const Temp = styled.div`
+display: flex;
+flex-direction: row;
+`
 export default function About() {
   return (
-    <div style={{backgroundColor: "lightblue"}}>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div>
       <Navbar/>
-      <Accordion/>
+      <Temp>
+      <Sidebar/>
+      <Form/>
+      </Temp>  
     </div>
   )
 }
