@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styled, {createGlobalStyle, css} from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
@@ -84,28 +85,69 @@ const StyledFieldset = styled.div`
 `
 
 export default function Form() {
+    const [name, setName] = useState("default")
+    const [email, setEmail] =useState("default")
+    const [radioValue, setRadionValue] = useState("CSE")
+    const [id, setId] =useState("default")
+    const IdHandler =(event) =>{
+        setId(event.target.value)
+    }
+    const NameHandler =(event) =>{
+        setName(event.target.value)
+    }
+    const EmailHandler = (event) =>{
+        setEmail(event.target.value)
+    }
+    const SubmitHandler = ()=>{
+        console.log("id", id)
+        console.log("name", name)
+        console.log("email",email)
+        console.log("department", radioValue)
+        const requestOptions ={
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: JSON.stringify({ id: id, name : name, email : email, department : radioValue })
+        };
+        const datafetch = async ()=>{
+            const response = await fetch('http://localhost:8080/register',requestOptions);
+            const data = await response.json();
+            console.log(data)
+        }
+        datafetch()
+    }
+    const RadioCSEHandler =()=>{
+        setRadionValue("CSE")
+    }
+    const RadioITHandler =()=>{
+        setRadionValue("IT")
+    }
+    const RadioECEHandler =()=>{
+        setRadionValue("ECE")
+    }
   return (
     <>
     <GlobalStyle/>
     <StyledFormWrapper>
-        <StyledForm>
+        <StyledForm onSubmit={SubmitHandler}>
             <h2>Student Form</h2>
+            <lable htmlFor="name">ID</lable>
+            <StyledInput onChange={IdHandler} type="text" name="id" />
             <lable htmlFor="name">Name</lable>
-            <StyledInput type="text" name="name" />
+            <StyledInput onChange={NameHandler} type="text" name="name" />
             <lable htmlFor="email">Email</lable>
-            <StyledInput type="email" name="email"/>
+            <StyledInput onChange={EmailHandler} type="email" name="email"/>
             <StyledFieldset>
                 <legend>Department</legend>
                 <lable>
-                    <input type="radio" value="CSE" name="department"/>
+                    <input onChange={RadioCSEHandler} type="radio" value="CSE" name="department"/>
                     CSE
                 </lable>
                 <lable>
-                    <input type="radio" value="IT" name="department"/>
+                    <input onChange={RadioITHandler} type="radio" value="IT" name="department"/>
                     IT
                 </lable>
                 <lable>
-                    <input type="radio" value="ECE" name="department"/>
+                    <input onChange={RadioECEHandler} type="radio" value="ECE" name="department"/>
                     ECE
                 </lable>
             </StyledFieldset>

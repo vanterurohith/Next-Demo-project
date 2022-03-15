@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Accordion from '../components/accordion'
 import Data from '../components/data'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/sidebar'
